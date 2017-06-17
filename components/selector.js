@@ -1,5 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, Button, View } from 'react-native';
+import SelectorSlider from './slider.js';
+import RiskViewerTable from './riskviewer.js';
 
 
 export default class Selector extends React.Component {
@@ -16,6 +18,8 @@ export default class Selector extends React.Component {
           <Text style={stylesSelector.riskLabelText}>Low</Text>
           <Text style={stylesSelector.riskLabelText}>High</Text>
         </View>
+        <SelectorSlider/>
+        <RiskViewerTable/>
       </View>
     );
   }
