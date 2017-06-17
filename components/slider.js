@@ -39,7 +39,7 @@ export default class SelectorSlider extends Component {
                   style={stylesSlider.button}
                  />
                 <Button
-                   onPress={this.props.changeViewer}
+                   onPress={this.props.changeMainScreen}
                    title="Personalize"
                    color="green"
                   style={stylesSlider.button}

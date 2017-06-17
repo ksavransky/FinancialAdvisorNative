@@ -7,19 +7,19 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {screen: "home", riskLevel: 0};
-    this.onChangeScreen = this.onChangeScreen.bind(this);
+    this.changeMainScreen = this.changeMainScreen.bind(this);
   }
 
-  onChangeScreen() {
+  changeMainScreen() {
     this.setState({screen: this.state.screen == "home" ? "calculator" : "home"});
   }
 
   render() {
     let bodyComponent;
     if(this.state.screen == "home"){
-       bodyComponent = <Selector onChangeScreen={this.onChangeScreen} riskTable={riskTable}/>;
+       bodyComponent = <Selector changeMainScreen={this.changeMainScreen} riskTable={riskTable}/>;
     } else if (this.state.screen == "calculator"){
-      bodyComponent = <Calculator onChangeScreen={this.onChangeScreen} riskTable={riskTable}/>;
+      bodyComponent = <Calculator changeMainScreen={this.changeMainScreen} riskTable={riskTable}/>;
     }
 
     return (

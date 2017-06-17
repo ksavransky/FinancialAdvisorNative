@@ -35,7 +35,7 @@ export default class Selector extends React.Component {
           <Text style={stylesSelector.riskLabelText}>Low</Text>
           <Text style={stylesSelector.riskLabelText}>High</Text>
         </View>
-        <SelectorSlider updateRiskLevel={this.updateRiskLevel} changeViewer={this.changeViewer}/>
+        <SelectorSlider updateRiskLevel={this.updateRiskLevel} changeViewer={this.changeViewer} changeMainScreen={this.props.changeMainScreen}/>
         {viewer}
       </View>
     );

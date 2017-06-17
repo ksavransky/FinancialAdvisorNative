@@ -14,7 +14,7 @@ export default class Calculator extends React.Component {
         <Text>Calculator</Text>
         <View>
           <Button
-            onPress={this.props.onChangeScreen}
+            onPress={this.props.changeMainScreen}
             title="Press Me"
             color="blue"
           />
