@@ -12,7 +12,7 @@ export default class SelectorSlider extends Component {
    this.state = { riskLevel: 1 }
   }
   getVal(val){
-    console.warn(val);
+    this.props.updateRiskLevel(val)
   }
   render() {
 
@@ -43,7 +43,8 @@ const stylesSlider = StyleSheet.create({
     padding: 10,
   },
   text: {
-    fontSize: 13,
+    fontSize: 14,
+    fontWeight: 'bold',
     textAlign: 'center',
     margin: 10,
   },

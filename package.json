@@ -21,6 +21,8 @@
   "dependencies": {
     "expo": "^17.0.0",
     "react": "16.0.0-alpha.6",
-    "react-native": "^0.44.0"
+    "react-donut-chart": "^1.0.5",
+    "react-native": "^0.44.0",
+    "react-native-pie-chart": "^1.0.11"
   }
 }
