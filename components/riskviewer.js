@@ -35,7 +35,7 @@ export default class RiskViewerTable extends React.Component {
 }
 
 const stylesRiskViewer = StyleSheet.create({
-  container: {flex: 6, backgroundColor: 'ghostwhite'},
+  container: {flex: 7, backgroundColor: 'ghostwhite'},
   head: { height: 40, backgroundColor: '#f1f8ff' },
   title: { backgroundColor: '#f6f8fa' },
   row: { height: 30 },

@@ -8,12 +8,17 @@ import DonutViewer from './donut.js';
 export default class Selector extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {riskLevel: 1, viewer: "donut"};
+    this.state = {riskLevel: 1, viewer: "table"};
     this.updateRiskLevel = this.updateRiskLevel.bind(this);
+    this.changeViewer = this.changeViewer.bind(this);
   }
 
   updateRiskLevel(level = 1){
     this.setState({riskLevel: level});
+  }
+
+  changeViewer(){
+    this.setState({viewer: this.state.viewer == "table" ? "donut" : "table"});
   }
 
   render() {
@@ -30,7 +35,7 @@ export default class Selector extends React.Component {
           <Text style={stylesSelector.riskLabelText}>Low</Text>
           <Text style={stylesSelector.riskLabelText}>High</Text>
         </View>
-        <SelectorSlider updateRiskLevel={this.updateRiskLevel}/>
+        <SelectorSlider updateRiskLevel={this.updateRiskLevel} changeViewer={this.changeViewer}/>
         {viewer}
       </View>
     );

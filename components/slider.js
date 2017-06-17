@@ -3,7 +3,8 @@ import {
   StyleSheet,
   Text,
   View,
-  Slider
+  Slider,
+  Button
 } from 'react-native';
 
 export default class SelectorSlider extends Component {
@@ -30,6 +31,20 @@ export default class SelectorSlider extends Component {
         <Text style={stylesSlider.text}>
           Risk Level: {this.state.riskLevel}
         </Text>
+        <View style={stylesSlider.buttonContainer}>
+                <Button
+                   onPress={this.props.changeViewer}
+                   title="Change View"
+                   color="#0084bf"
+                  style={stylesSlider.button}
+                 />
+                <Button
+                   onPress={this.props.changeViewer}
+                   title="Personalize"
+                   color="green"
+                  style={stylesSlider.button}
+                 />
+        </View>
       </View>
     );
   }
@@ -37,7 +52,7 @@ export default class SelectorSlider extends Component {
 
 const stylesSlider = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 2,
     alignItems: 'center',
     backgroundColor: 'ghostwhite',
     padding: 10,
@@ -48,4 +63,12 @@ const stylesSlider = StyleSheet.create({
     textAlign: 'center',
     margin: 10,
   },
+  button: {
+    fontSize: 12,
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: 320,
+  }
 });
