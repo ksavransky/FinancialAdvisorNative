@@ -1,23 +1,25 @@
 import React from 'react';
 import { StyleSheet, Text, Button, View } from 'react-native';
+import Selector from './components/selector.js';
+import Calculator from './components/calculator.js';
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {location: "home", riskLevel: 0};
-    this.onPressButton = this.onPressButton.bind(this);
+    this.state = {screen: "home", riskLevel: 0};
+    this.onChangeScreen = this.onChangeScreen.bind(this);
   }
 
-  onPressButton() {
-    this.setState({location: this.state.location == "home" ? "calculator" : "home"});
+  onChangeScreen() {
+    this.setState({screen: this.state.screen == "home" ? "calculator" : "home"});
   }
 
   render() {
     let bodyComponent;
-    if(this.state.location == "home"){
-       bodyComponent = <Text>Home</Text>;
-    } else if (this.state.location == "calculator"){
-      bodyComponent = <Text>Calculator</Text>;
+    if(this.state.screen == "home"){
+       bodyComponent = <Selector onChangeScreen={this.onChangeScreen}/>;
+    } else if (this.state.screen == "calculator"){
+      bodyComponent = <Calculator onChangeScreen={this.onChangeScreen}/>;
     }
 
     return (
@@ -27,13 +29,6 @@ export default class App extends React.Component {
         </View>
         <View style={styles.body}>
           {bodyComponent}
-        </View>
-        <View style={styles.buttonContainer}>
-          <Button
-            onPress={this.onPressButton}
-            title="Press Me"
-            color="#841584"
-          />
         </View>
       </View>
     );
@@ -51,15 +46,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   body: {
-    flex: 8,
+    flex: 7,
     backgroundColor: 'ghostwhite',
     alignItems: 'center',
   },
   appTitle: {
     color: 'white',
     fontSize: 22,
-  },
-  buttonContainer: {
-    margin: 20,
   },
 });
