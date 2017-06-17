@@ -11,15 +11,28 @@ export default class Selector extends React.Component {
   render() {
     return (
       <View>
-        <Text>Selector</Text>
-        <View>
-          <Button
-            onPress={this.props.onChangeScreen}
-            title="Press Me"
-            color="blue"
-          />
+        <Text style={stylesSelector.title}>Please Select A Risk Level For Your Investment Portfolio</Text>
+        <View style={stylesSelector.riskLabels}>
+          <Text style={stylesSelector.riskLabelText}>Low</Text>
+          <Text style={stylesSelector.riskLabelText}>High</Text>
         </View>
       </View>
     );
   }
 }
+
+const stylesSelector = StyleSheet.create({
+  title: {
+    fontSize: 13,
+    fontWeight: 'bold',
+    margin: 10,
+  },
+  riskLabels: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    margin: 5,
+  },
+  riskLabelText: {
+    fontSize: 12,
+  },
+});
