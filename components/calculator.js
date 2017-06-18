@@ -7,7 +7,7 @@ import Results from './results.js';
 export default class Calculator extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {currentAmounts: ['0','10','20','30','40'], calcviewer: "results"};
+    this.state = {currentAmounts: ['','10','20','30','40'], calcviewer: "results"};
     this.updateCurrentAmounts = this.updateCurrentAmounts.bind(this);
     this.changeCalcView = this.changeCalcView.bind(this);
   }
