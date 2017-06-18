@@ -8,7 +8,7 @@ export default class DonutViewer extends Component {
     const chart_wh = 250;
     const riskRow = this.props.riskTable[this.props.riskLevel];
     const series = riskRow;
-    const sliceColor = ['#F44336','#2196F3','purple', '#4CAF50', '#FF9800'];
+    const sliceColor = ['#2196F3','#4CAF50','#FF9800', '#F44336', 'purple'];
 
     return (
         <View style={stylesDonut.container}>
@@ -66,30 +66,30 @@ const stylesDonut = StyleSheet.create({
     height: 30,
     width: 30,
     justifyContent: 'center',
-    backgroundColor: '#F44336'
+    backgroundColor: '#2196F3'
   },
   labelColor2: {
     height: 30,
     width: 30,
     justifyContent: 'center',
-    backgroundColor: '#2196F3'
+    backgroundColor: '#4CAF50'
   },
   labelColor3: {
     height: 30,
     width: 30,
     justifyContent: 'center',
-    backgroundColor: 'purple'
+    backgroundColor: '#FF9800'
   },
   labelColor4: {
     height: 30,
     width: 30,
     justifyContent: 'center',
-    backgroundColor: '#4CAF50'
+    backgroundColor: '#F44336'
   },
   labelColor5: {
     height: 30,
     width: 30,
     justifyContent: 'center',
-    backgroundColor: '#FF9800'
+    backgroundColor: 'purple'
   }
 });
