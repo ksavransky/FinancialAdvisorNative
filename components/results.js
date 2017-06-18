@@ -41,7 +41,7 @@ export default class Results extends React.Component {
                   style={stylesResults.button}
                  />
         </View>
-        <Text style={stylesTable.title}>Results</Text>
+        <Text style={stylesResults.title}>Recommended New Portfolio</Text>
         <Table>
           <Row data={tableHead} flexArr={[1, 1]} style={stylesTable.head} textStyle={stylesTable.text}/>
           <TableWraper style={{flexDirection: 'row'}}>
