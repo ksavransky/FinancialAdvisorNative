@@ -6,7 +6,7 @@ import Calculator from './components/calculator.js';
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {screen: "home", viewer: "table", riskLevel: 1};
+    this.state = {screen: "calculator", viewer: "table", riskLevel: 1};
     this.changeMainScreen = this.changeMainScreen.bind(this);
     this.changeViewer = this.changeViewer.bind(this);
     this.updateRiskLevel = this.updateRiskLevel.bind(this);
@@ -29,7 +29,7 @@ export default class App extends React.Component {
     if(this.state.screen == "home"){
        bodyComponent = <Selector updateRiskLevel={this.updateRiskLevel} viewer={this.state.viewer} changeViewer={this.changeViewer} riskLevel={this.state.riskLevel} changeMainScreen={this.changeMainScreen} riskTable={riskTable}/>;
     } else if (this.state.screen == "calculator"){
-      bodyComponent = <Calculator updateRiskLevel={this.updateRiskLevel} riskLevel={this.state.riskLevel} changeMainScreen={this.changeMainScreen} riskTable={riskTable}/>;
+      bodyComponent = <Calculator riskLevel={this.state.riskLevel} changeMainScreen={this.changeMainScreen} riskTable={riskTable}/>;
     }
 
     return (

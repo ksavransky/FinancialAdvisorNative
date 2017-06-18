@@ -19,7 +19,7 @@ export default class Selector extends React.Component {
     }
     return (
       <ScrollView>
-        <Text style={stylesSelector.title}>Please Select A Risk Level For Your Investment Portfolio</Text>
+        <Text style={stylesSelector.title}>Please Select A Risk Level For Your Portfolio</Text>
         <View style={stylesSelector.riskLabels}>
           <Text style={stylesSelector.riskLabelText}>Low</Text>
           <Text style={stylesSelector.riskLabelText}>High</Text>
@@ -33,9 +33,10 @@ export default class Selector extends React.Component {
 
 const stylesSelector = StyleSheet.create({
   title: {
-    fontSize: 13,
+    fontSize: 15,
     fontWeight: 'bold',
     margin: 10,
+    alignSelf: 'center'
   },
   riskLabels: {
     flexDirection: 'row',
