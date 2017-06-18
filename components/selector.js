@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, Button, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, Button, View } from 'react-native';
 import SelectorSlider from './slider.js';
 import RiskViewerTable from './riskviewer.js';
 import DonutViewer from './donut.js';
@@ -29,7 +29,7 @@ export default class Selector extends React.Component {
       viewer = <DonutViewer riskTable={this.props.riskTable} riskLevel={this.state.riskLevel}/>;
     }
     return (
-      <View>
+      <ScrollView>
         <Text style={stylesSelector.title}>Please Select A Risk Level For Your Investment Portfolio</Text>
         <View style={stylesSelector.riskLabels}>
           <Text style={stylesSelector.riskLabelText}>Low</Text>
@@ -37,7 +37,7 @@ export default class Selector extends React.Component {
         </View>
         <SelectorSlider updateRiskLevel={this.updateRiskLevel} changeViewer={this.changeViewer} changeMainScreen={this.props.changeMainScreen}/>
         {viewer}
-      </View>
+      </ScrollView>
     );
   }
 }
