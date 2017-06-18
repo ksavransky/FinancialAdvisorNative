@@ -11,6 +11,7 @@ export default class Results extends React.Component {
   render() {
     let riskLevelRow = this.props.riskTable[this.props.riskLevel];
     let currentAmounts = this.props.currentAmounts;
+    let transfers = 'replace me';
     // [riskLevelRow[0] + "%"],
     // [riskLevelRow[1] + "%"],
     // [riskLevelRow[2] + "%"],
@@ -49,6 +50,8 @@ export default class Results extends React.Component {
             <Rows data={tableData} heightArr={[30]} flexArr={[1, 1, 1]} style={stylesTable.row} textStyle={stylesTable.text}/>
           </TableWraper>
         </Table>
+        <Text style={stylesResults.title}>Recommended Transfers</Text>
+        <Text style={stylesResults.transfers}>{transfers}</Text>
       </View>
     )
   }
