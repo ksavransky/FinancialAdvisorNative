@@ -8,25 +8,14 @@ import DonutViewer from './donut.js';
 export default class Selector extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {riskLevel: 1, viewer: "table"};
-    this.updateRiskLevel = this.updateRiskLevel.bind(this);
-    this.changeViewer = this.changeViewer.bind(this);
-  }
-
-  updateRiskLevel(level = 1){
-    this.setState({riskLevel: level});
-  }
-
-  changeViewer(){
-    this.setState({viewer: this.state.viewer == "table" ? "donut" : "table"});
   }
 
   render() {
     let viewer;
-    if (this.state.viewer == "table"){
-      viewer = <RiskViewerTable riskTable={this.props.riskTable} riskLevel={this.state.riskLevel}/>;
+    if (this.props.viewer == "table"){
+      viewer = <RiskViewerTable riskTable={this.props.riskTable} riskLevel={this.props.riskLevel}/>;
     } else {
-      viewer = <DonutViewer riskTable={this.props.riskTable} riskLevel={this.state.riskLevel}/>;
+      viewer = <DonutViewer riskTable={this.props.riskTable} riskLevel={this.props.riskLevel}/>;
     }
     return (
       <ScrollView>
@@ -35,7 +24,7 @@ export default class Selector extends React.Component {
           <Text style={stylesSelector.riskLabelText}>Low</Text>
           <Text style={stylesSelector.riskLabelText}>High</Text>
         </View>
-        <SelectorSlider updateRiskLevel={this.updateRiskLevel} changeViewer={this.changeViewer} changeMainScreen={this.props.changeMainScreen}/>
+        <SelectorSlider riskLevel={this.props.riskLevel} updateRiskLevel={this.props.updateRiskLevel} changeViewer={this.props.changeViewer} changeMainScreen={this.props.changeMainScreen}/>
         {viewer}
       </ScrollView>
     );

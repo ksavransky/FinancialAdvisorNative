@@ -10,7 +10,7 @@ import {
 export default class SelectorSlider extends Component {
   constructor(props) {
    super(props)
-   this.state = { riskLevel: 1 }
+   this.state = { riskLevel: this.props.riskLevel }
   }
   getVal(val){
     this.props.updateRiskLevel(val)

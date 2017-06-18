@@ -6,20 +6,30 @@ import Calculator from './components/calculator.js';
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {screen: "home", riskLevel: 0};
+    this.state = {screen: "home", viewer: "table", riskLevel: 1};
     this.changeMainScreen = this.changeMainScreen.bind(this);
+    this.changeViewer = this.changeViewer.bind(this);
+    this.updateRiskLevel = this.updateRiskLevel.bind(this);
+  }
+
+  updateRiskLevel(level = 1){
+    this.setState({riskLevel: level});
   }
 
   changeMainScreen() {
     this.setState({screen: this.state.screen == "home" ? "calculator" : "home"});
   }
 
+  changeViewer(){
+    this.setState({viewer: this.state.viewer == "table" ? "donut" : "table"});
+  }
+
   render() {
     let bodyComponent;
     if(this.state.screen == "home"){
-       bodyComponent = <Selector changeMainScreen={this.changeMainScreen} riskTable={riskTable}/>;
+       bodyComponent = <Selector updateRiskLevel={this.updateRiskLevel} viewer={this.state.viewer} changeViewer={this.changeViewer} riskLevel={this.state.riskLevel} changeMainScreen={this.changeMainScreen} riskTable={riskTable}/>;
     } else if (this.state.screen == "calculator"){
-      bodyComponent = <Calculator changeMainScreen={this.changeMainScreen} riskTable={riskTable}/>;
+      bodyComponent = <Calculator updateRiskLevel={this.updateRiskLevel} riskLevel={this.state.riskLevel} changeMainScreen={this.changeMainScreen} riskTable={riskTable}/>;
     }
 
     return (
