@@ -6,14 +6,11 @@ import Calculator from './components/calculator.js';
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {screen: "calculator", viewer: "table", riskLevel: 1};
+    this.state = {screen: "home", viewer: "table", riskLevel: 1, currentAmounts: ['0.00','0.00','0.00','0.00','0.00']};
     this.changeMainScreen = this.changeMainScreen.bind(this);
     this.changeViewer = this.changeViewer.bind(this);
     this.updateRiskLevel = this.updateRiskLevel.bind(this);
-  }
-
-  updateRiskLevel(level = 1){
-    this.setState({riskLevel: level});
+    this.updateCurrentAmounts = this.updateCurrentAmounts.bind(this);
   }
 
   changeMainScreen() {
@@ -24,12 +21,20 @@ export default class App extends React.Component {
     this.setState({viewer: this.state.viewer == "table" ? "donut" : "table"});
   }
 
+  updateCurrentAmounts(newCurrentAmounts){
+      this.setState({currentAmounts: newCurrentAmounts});
+  }
+
+  updateRiskLevel(level = 1){
+    this.setState({riskLevel: level});
+  }
+
   render() {
     let bodyComponent;
     if(this.state.screen == "home"){
        bodyComponent = <Selector updateRiskLevel={this.updateRiskLevel} viewer={this.state.viewer} changeViewer={this.changeViewer} riskLevel={this.state.riskLevel} changeMainScreen={this.changeMainScreen} riskTable={riskTable}/>;
     } else if (this.state.screen == "calculator"){
-      bodyComponent = <Calculator riskLevel={this.state.riskLevel} changeMainScreen={this.changeMainScreen} riskTable={riskTable}/>;
+      bodyComponent = <Calculator updateCurrentAmounts={this.updateCurrentAmounts} currentAmounts={this.state.currentAmounts} riskLevel={this.state.riskLevel} changeMainScreen={this.changeMainScreen} riskTable={riskTable}/>;
     }
 
     return (

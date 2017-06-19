@@ -7,13 +7,8 @@ import Results from './results.js';
 export default class Calculator extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {currentAmounts: ['40','10','20','30','40'], calcviewer: "results"};
-    this.updateCurrentAmounts = this.updateCurrentAmounts.bind(this);
+    this.state = {calcviewer: "inputs"};
     this.changeCalcView = this.changeCalcView.bind(this);
-  }
-
-  updateCurrentAmounts(newCurrentAmounts){
-      this.setState({currentAmounts: newCurrentAmounts});
   }
 
   changeCalcView(){
@@ -23,9 +18,9 @@ export default class Calculator extends React.Component {
   render() {
     let calcBody;
     if(this.state.calcviewer == "inputs"){
-       calcBody = <CalcInputs currentAmounts={this.state.currentAmounts} updateCurrentAmounts={this.updateCurrentAmounts} changeCalcView={this.changeCalcView}  changeMainScreen={this.props.changeMainScreen}/>
+       calcBody = <CalcInputs currentAmounts={this.props.currentAmounts} updateCurrentAmounts={this.props.updateCurrentAmounts} changeCalcView={this.changeCalcView}  changeMainScreen={this.props.changeMainScreen}/>
     } else if (this.state.calcviewer == "results"){
-      calcBody = <Results riskLevel={this.props.riskLevel} currentAmounts={this.state.currentAmounts} riskTable={this.props.riskTable} changeCalcView={this.changeCalcView} changeMainScreen={this.props.changeMainScreen}/>;
+      calcBody = <Results riskLevel={this.props.riskLevel} currentAmounts={this.props.currentAmounts} riskTable={this.props.riskTable} changeCalcView={this.changeCalcView} changeMainScreen={this.props.changeMainScreen}/>;
     }
     return (
       <ScrollView>

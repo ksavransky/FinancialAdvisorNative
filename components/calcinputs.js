@@ -36,7 +36,7 @@ export default class CalcInputs extends React.Component {
         <View style={{padding: 10}}>
                 <TextInput
                   style={{height: 40}}
-                  placeholder="0.00"
+                  defaultValue={currentAmountsState[0]}
                   onChangeText={(text) => setCurrentAmounts(text, 0)}
                 />
         </View>
@@ -44,7 +44,7 @@ export default class CalcInputs extends React.Component {
         <View style={{padding: 10}}>
                 <TextInput
                   style={{height: 40}}
-                  placeholder="0.00"
+                  defaultValue={currentAmountsState[1]}
                   onChangeText={(text) => setCurrentAmounts(text, 1)}
                 />
         </View>
@@ -52,7 +52,7 @@ export default class CalcInputs extends React.Component {
         <View style={{padding: 10}}>
                 <TextInput
                   style={{height: 40}}
-                  placeholder="0.00"
+                  defaultValue={currentAmountsState[2]}
                   onChangeText={(text) => setCurrentAmounts(text, 2)}
                 />
         </View>
@@ -60,7 +60,7 @@ export default class CalcInputs extends React.Component {
         <View style={{padding: 10}}>
                 <TextInput
                   style={{height: 40}}
-                  placeholder="0.00"
+                  defaultValue={currentAmountsState[3]}
                   onChangeText={(text) => setCurrentAmounts(text, 3)}
                 />
         </View>
@@ -68,7 +68,7 @@ export default class CalcInputs extends React.Component {
         <View style={{padding: 10}}>
                 <TextInput
                   style={{height: 40}}
-                  placeholder="0.00"
+                  defaultValue={currentAmountsState[4]}
                   onChangeText={(text) => setCurrentAmounts(text, 4)}
                 />
         </View>
